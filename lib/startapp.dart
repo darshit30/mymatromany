@@ -81,7 +81,7 @@ class StartApp extends StatelessWidget {
                       blurRadius: 5,
                     ),
                   ],
-                  color: Colors.blue,
+                  color: Colors.white.withOpacity(0.5),
                   borderRadius: BorderRadius.circular(30),
                   gradient: LinearGradient(colors: [Colors.pinkAccent,Colors.purpleAccent],
                     tileMode: TileMode.clamp,
@@ -96,7 +96,45 @@ class StartApp extends StatelessWidget {
                               builder: (context) => const LoginPage()));
                     },
                     child: const Text(
-                      "Login",
+                      "Sign Up",
+                      style: TextStyle(color: Colors.white, fontSize: 15),
+                    )),
+              ),
+            ),
+            // SIZED_BOX
+            SizedBox(
+              height: 10,
+            ),
+            // FOR REGISTER
+            Padding(
+              padding: const EdgeInsets.only(left:50),
+              child: Container(
+                width: 250,
+                decoration: BoxDecoration(
+                  //border: Border.all(color: Colors.grey),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.white38,
+                      blurRadius: 5,
+                    ),
+                  ],
+                  color: Colors.white.withOpacity(0.5),
+
+                  borderRadius: BorderRadius.circular(30),
+                  gradient: LinearGradient(colors: [Colors.deepPurple,Colors.purpleAccent],
+                    //tileMode: TileMode.clamp,
+
+                 ),
+                ),
+                child: TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LoginPage()));
+                    },
+                    child: const Text(
+                      "Sign In",
                       style: TextStyle(color: Colors.white, fontSize: 15),
                     )),
               ),
