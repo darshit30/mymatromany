@@ -1,151 +1,142 @@
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-
+import 'register.dart';
 import 'LoginPage.dart';
+
 class StartApp extends StatelessWidget {
   const StartApp ({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: <Widget>[
-      Image.asset("assets/Wallpaper/Shaadi.png",
-      height: MediaQuery.of(context).size.height,
-      width: MediaQuery.of(context).size.width,
-      fit: BoxFit.cover,
-      ),
-      Scaffold(
-      backgroundColor: Colors.transparent,
-      // appBar: AppBar(
-      // backgroundColor: Colors.transparent,
-      // elevation: 0.0,
-      // ),
-          body:
-        Column(
+    return Scaffold(
+      body: Container(
+        height: 900,
+        width: 500,
+        decoration: BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage('assets/Wallpaper/BGimage.png'),
+            fit: BoxFit.cover,
+          opacity: 0.4,
 
-          children: [
-            // LOGO
-            Padding(
-              padding: const EdgeInsets.only(top:150,left: 50),
-              child: Card(
-                semanticContainer: true,
-                clipBehavior: Clip.antiAliasWithSaveLayer,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Image.asset(
-                    'assets/Logo/Logo.png',
-                    fit: BoxFit.cover,
-                    height: 120,
-                  ),
-                ),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20.0),
-
-                ),
-                shadowColor: Colors.pink,
-                elevation: 10,
-                margin: EdgeInsets.all(10),
-              ),
             ),
-            // SIZED_BOX
-            SizedBox(
-              height: 10,
-            ),
-            //TEXT
-            Padding(
-              padding: const EdgeInsets.only(left:50),
-              child: Text("shaadi.com",
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-
-              )
-              ),
-            ),
-            // SIZED_BOX
-            SizedBox(
-              height: 10,
-            ),
-            // CONTAINER
-            Padding(
-              padding: const EdgeInsets.only(top:150,left:50),
-              child: Container(
-                width: 250,
-                decoration: BoxDecoration(
-                  //border: Border.all(color: Colors.grey),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.white38,
-                      blurRadius: 5,
-                    ),
-                  ],
-                  color: Colors.white.withOpacity(0.5),
-                  borderRadius: BorderRadius.circular(30),
-                  gradient: LinearGradient(colors: [Colors.pinkAccent,Colors.purpleAccent],
-                    tileMode: TileMode.clamp,
-
-                  ),
-                ),
-                child: TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const LoginPage()));
-                    },
-                    child: const Text(
-                      "Sign Up",
-                      style: TextStyle(color: Colors.white, fontSize: 15),
-                    )),
-              ),
-            ),
-            // SIZED_BOX
-            SizedBox(
-              height: 10,
-            ),
-            // FOR REGISTER
-            Padding(
-              padding: const EdgeInsets.only(left:50),
-              child: Container(
-                width: 250,
-                decoration: BoxDecoration(
-                  //border: Border.all(color: Colors.grey),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.white38,
-                      blurRadius: 5,
-                    ),
-                  ],
-                  color: Colors.white.withOpacity(0.5),
-
-                  borderRadius: BorderRadius.circular(30),
-                  gradient: LinearGradient(colors: [Colors.deepPurple,Colors.purpleAccent],
-                    //tileMode: TileMode.clamp,
-
-                 ),
-                ),
-                child: TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const LoginPage()));
-                    },
-                    child: const Text(
-                      "Sign In",
-                      style: TextStyle(color: Colors.white, fontSize: 15),
-                    )),
-              ),
-            ),
-          ],
-
-
-
         ),
-      )
+          child: Column(
+           children: [
+             //Card of logo
+             SizedBox(
+               height: 180,
+             ),
+             Text("India",
+                 style: TextStyle(
+                     fontSize: 50,
+                     color:Colors.black,
+                     fontWeight: FontWeight.bold,
+                     fontStyle: FontStyle.italic,
+                     letterSpacing: 3,
+                     wordSpacing: 5,
+                   //  backgroundColor: Colors.orange.withOpacity(0.2),
+                     shadows: [
+                       Shadow(
+                           color: Colors.white,
+                           offset: Offset(3,3),
+                           blurRadius:10)
+                     ]
+                 )
+             ),
+             Text("Matrimony",
+                 style: TextStyle(
+                     fontSize: 50,
+                     color:Colors.black,
+                     fontWeight: FontWeight.bold,
+                     fontStyle: FontStyle.italic,
+                     letterSpacing: 3,
+                  //   backgroundColor: Colors.green.withOpacity(0.2),
+                     shadows: [
+                       Shadow(
+                           color: Colors.white,
+                           offset: Offset(3,3),
+                           blurRadius:10)
+                     ]
+
+                 )),
+             SizedBox(
+               height: 5,
+             ),
+             //Text of Appname,
+             SizedBox(
+               height: 270,
+             ),
+               //SIGN UP
+               Container(
+                  width: 250,
+                  decoration: BoxDecoration(
+                  //border: Border.all(color: Colors.grey),
+                     boxShadow: const [
+                      BoxShadow(
+                        color: Colors.white38,
+                        blurRadius: 5,
+                        ),
+                     ],
+                    color: Colors.white.withOpacity(0.5),
+                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                       gradient: LinearGradient(colors: [Colors.blue,Colors.purple,Colors.pink,Colors.red],
+
+                ),
+                ),
+                  child: TextButton(
+                    onPressed: () {
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const RegisterPage()));
+                      },
+                      child: const Text(
+                    "Sign Up",
+                    style: TextStyle(color: Colors.white, fontSize: 15),
+                    ),
+                  ),
+      ),
+             SizedBox(
+               height: 10,
+             ),
+             //SIGN IN
+             Padding(
+               padding: const EdgeInsets.all(0.0),
+               child: Container(
+                 width: 250,
+                 decoration: BoxDecoration(
+                   //border: Border.all(color: Colors.grey),
+                   boxShadow: const [
+                     BoxShadow(
+                       color: Colors.white38,
+                       blurRadius: 5,
+                     ),
+                   ],
+                   color: Colors.white.withOpacity(0.4),
+                   borderRadius: BorderRadius.all(Radius.circular(50)),
+                   gradient: LinearGradient(colors: [Colors.blue,Colors.purple,Colors.pink,Colors.red],
+
+                   ),
+                 ),
+                 child: TextButton(
+                   onPressed: () {
+                     Navigator.push(
+                         context,
+                         MaterialPageRoute(
+                             builder: (context) => const LoginPage()));
+                   },
+                   child: const Text(
+                     "Sign In",
+                     style: TextStyle(color: Colors.black, fontSize: 15),
+                   ),
+                 ),
+               ),
+             ),
+
     ],
-    );
+  ),
+
+  ),
+      );
   }
 }
