@@ -12,7 +12,7 @@ class StartApp extends StatelessWidget {
       body: Container(
         height: 900,
         width: 500,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
         image: DecorationImage(
             image: AssetImage('assets/Wallpaper/BGimage.png'),
             fit: BoxFit.cover,
@@ -22,30 +22,27 @@ class StartApp extends StatelessWidget {
         ),
           child: Column(
            children: [
+             const SizedBox(
+               height: 140,
+             ),
+              Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+                child: Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: Image.asset("assets/Logo/Logo.jpg",
+                          height: 100
+                          ),
+                ),
+                shadowColor: Colors.white,
+                elevation: 10,
+                color: Colors.white,
+              ),
              //Card of logo
-             SizedBox(
-               height: 180,
-             ),
-             Text("India",
+             const Text("Matrimony ",
                  style: TextStyle(
-                     fontSize: 50,
-                     color:Colors.black,
-                     fontWeight: FontWeight.bold,
-                     fontStyle: FontStyle.italic,
-                     letterSpacing: 3,
-                     wordSpacing: 5,
-                   //  backgroundColor: Colors.orange.withOpacity(0.2),
-                     shadows: [
-                       Shadow(
-                           color: Colors.white,
-                           offset: Offset(3,3),
-                           blurRadius:10)
-                     ]
-                 )
-             ),
-             Text("Matrimony",
-                 style: TextStyle(
-                     fontSize: 50,
+                     fontSize: 20,
                      color:Colors.black,
                      fontWeight: FontWeight.bold,
                      fontStyle: FontStyle.italic,
@@ -59,11 +56,11 @@ class StartApp extends StatelessWidget {
                      ]
 
                  )),
-             SizedBox(
+             const SizedBox(
                height: 5,
              ),
              //Text of Appname,
-             SizedBox(
+             const SizedBox(
                height: 270,
              ),
                //SIGN UP
@@ -78,8 +75,8 @@ class StartApp extends StatelessWidget {
                         ),
                      ],
                     color: Colors.white.withOpacity(0.5),
-                      borderRadius: BorderRadius.all(Radius.circular(30)),
-                       gradient: LinearGradient(colors: [Colors.blue,Colors.purple,Colors.pink,Colors.red],
+                      borderRadius: const BorderRadius.all(Radius.circular(30)),
+                       gradient: const LinearGradient(colors: [Colors.blue,Colors.purple,Colors.pink,Colors.red],
 
                 ),
                 ),
@@ -96,7 +93,7 @@ class StartApp extends StatelessWidget {
                     ),
                   ),
       ),
-             SizedBox(
+             const SizedBox(
                height: 10,
              ),
              //SIGN IN
@@ -113,8 +110,8 @@ class StartApp extends StatelessWidget {
                      ),
                    ],
                    color: Colors.white.withOpacity(0.4),
-                   borderRadius: BorderRadius.all(Radius.circular(50)),
-                   gradient: LinearGradient(colors: [Colors.blue,Colors.purple,Colors.pink,Colors.red],
+                   borderRadius: const BorderRadius.all(Radius.circular(50)),
+                   gradient: const LinearGradient(colors: [Colors.blue,Colors.purple,Colors.pink,Colors.red],
 
                    ),
                  ),

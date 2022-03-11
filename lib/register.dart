@@ -1,27 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+import 'package:newmatromany/LoginPage.dart';
+import 'package:newmatromany/navigator_pages/home_page.dart';
 import 'package:newmatromany/startapp.dart';
-
-import 'homepage.dart';
 class RegisterPage extends StatelessWidget {
   const RegisterPage({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Container(
-          height: 900,
-          width: 500,
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/Wallpaper/BGimage.png'),
-              fit: BoxFit.cover,
-              opacity: 0.4,
+      body: Container(
+        height: 950,
+        width: 500,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/Wallpaper/BGimage.png'),
+            fit: BoxFit.cover,
+            opacity: 0.4,
 
-            ),
           ),
+        ),
+
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
 
           child: Column(
 
@@ -29,7 +28,7 @@ class RegisterPage extends StatelessWidget {
             children: [
 
               Padding(
-                padding: const EdgeInsets.only(top:12,right: 325),
+                padding: const EdgeInsets.only(top:14,right: 325),
                 child: TextButton(
                 onPressed: () {
                   Navigator.push(
@@ -39,10 +38,31 @@ class RegisterPage extends StatelessWidget {
                   },
                     child: const Icon(
                         Icons.arrow_back,
-                    color: Colors.white,)
+                    color: Colors.white,
+                    semanticLabel: "Back to Login",
+                    size: 30,)
                     ),
               ),
-              Text("Sign Up",
+              Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: const Padding(
+                  padding: EdgeInsets.all(4.0),
+                  child: Icon(Icons.person_add_alt_1,
+                    color: Colors.black,
+                    size: 50,
+                  ),
+                  //Image.asset("assets/Logo/LogoP.png",
+                  //     height: 100
+                  // ),
+                ),
+
+                shadowColor: Colors.white.withOpacity(0),
+                elevation: 10,
+                color: Colors.white.withOpacity(0),
+              ),
+              const Text("Sign Up",
                 style: TextStyle(
                   fontSize: 30,
                   color:Colors.black,
@@ -56,102 +76,152 @@ class RegisterPage extends StatelessWidget {
                   ]
                 )
               ),
+              const SizedBox(
+                height: 30,
+              ),
+              //FORM QUARIES
               Container(
                 width: 300,
+                child: Column(
 
-                child: TextField(
-                  decoration: InputDecoration(
-                    labelText: "Emter First Name",
-                    //icon: Icon(Icons.drive_file_rename_outline),
-                      border: OutlineInputBorder()
-                  ),
+                  children: const [
+
+                    //TEXTFIELD OF ENTER USER ID
+                    TextField(
+                      decoration: InputDecoration(
+                        icon: Icon(Icons.person,
+                            size: 20),
+                        //  hintText: 'UserId',
+                        labelText: "First Name",
+                        border: OutlineInputBorder(),
+                      ),
+
+                      textDirection: TextDirection.ltr,
+                      textAlign: TextAlign.left,
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    //TEXTFIELD OF ENTER PASSWORD
+                    TextField(
+                      decoration: InputDecoration(
+                        icon: Icon(Icons.drive_file_rename_outline,
+                            size: 20),
+
+                        //  hintText: 'UserId',
+                        labelText: "Last Name",
+                        border: OutlineInputBorder(),
+                      ),
+
+                      textDirection: TextDirection.ltr,
+                      textAlign: TextAlign.left,
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    TextField(
+                      decoration: InputDecoration(
+                        icon: Icon(Icons.mobile_friendly,
+                            size: 20),
+                        //  hintText: 'UserId',
+                        labelText: "Mobile Number",
+                        prefixText: "+91",
+                        border: OutlineInputBorder(),
+                      ),
+
+                      textDirection: TextDirection.ltr,
+                      obscureText: true,
+                      textAlign: TextAlign.left,
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    TextField(
+                      decoration: InputDecoration(
+                        icon: Icon(Icons.home,
+                            size: 20),
+                        //  hintText: 'UserId',
+                        labelText: "Address",
+                        border: OutlineInputBorder(),
+                      ),
+
+                      textDirection: TextDirection.ltr,
+                      textAlign: TextAlign.left,
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    TextField(
+                      decoration: InputDecoration(
+                        icon: Icon(Icons.email,
+                            size: 20),
+                        //  hintText: 'UserId',
+                        labelText: "Email Address",
+                        border: OutlineInputBorder(),
+                      ),
+
+                      textDirection: TextDirection.ltr,
+                      textAlign: TextAlign.left,
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    TextField(
+                      decoration: InputDecoration(
+                        icon: Icon(Icons.language,
+                            size: 20),
+                        //  hintText: 'UserId',
+                        labelText: "Mother Language",
+                        border: OutlineInputBorder(),
+                      ),
+
+                      textDirection: TextDirection.ltr,
+                      obscureText: true,
+                      textAlign: TextAlign.left,
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    TextField(
+                      decoration: InputDecoration(
+                        icon: Icon(Icons.password,
+                            size: 20),
+                        //  hintText: 'UserId',
+                        labelText: "Password",
+                        border: OutlineInputBorder(),
+                      ),
+
+                      textDirection: TextDirection.ltr,
+                      obscureText: true,
+                      textAlign: TextAlign.left,
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    TextField(
+                      decoration: InputDecoration(
+                        icon: Icon(Icons.password,
+                            size: 20),
+                        //  hintText: 'UserId',
+                        labelText: "Confirm Password",
+                        border: OutlineInputBorder(),
+                      ),
+
+                      textDirection: TextDirection.ltr,
+                      obscureText: true,
+                      textAlign: TextAlign.left,
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                  ],
                 ),
               ),
-              Container(
-                width: 300,
-
-                child: TextField(
-                  decoration: InputDecoration(
-                      labelText: "Emter Last Name",
-                      //icon: Icon(Icons.drive_file_rename_outline),
-                      border: OutlineInputBorder()
-                  ),
-                ),
+              //SIZEDBUTTON
+              const SizedBox(
+                height: 20,
               ),
-              Container(
-                width: 300,
-
-                child: TextField(
-                  decoration: InputDecoration(
-                      labelText: "Mobile Number",
-                      prefixText: "+91 ",
-                      //icon: Icon(Icons.drive_file_rename_outline),
-                      border: OutlineInputBorder(),
-
-                  ),
-                  keyboardType: TextInputType.number,
-                ),
-              ),
-              Container(
-                width: 300,
-
-                child: TextField(
-                  decoration: InputDecoration(
-                      labelText: "Address",
-                      //icon: Icon(Icons.drive_file_rename_outline),
-                      border: OutlineInputBorder()
-                  ),
-                ),
-              ),
-              Container(
-                width: 300,
-
-                child: TextField(
-                  decoration: InputDecoration(
-                      labelText: "Email Adress",
-                      //icon: Icon(Icons.drive_file_rename_outline),
-                      border: OutlineInputBorder()
-                  ),
-                ),
-              ),
-              Container(
-                width: 300,
-
-                child: TextField(
-                  decoration: InputDecoration(
-                      labelText: "Mother Tounge",
-                      //icon: Icon(Icons.drive_file_rename_outline),
-                      border: OutlineInputBorder()
-                  ),
-                ),
-              ),
-              Container(
-                width: 300,
-
-                child: TextField(
-                  decoration: InputDecoration(
-                      labelText: "Password",
-
-                      helperText: "Must include A,a,@,#,%,&,* and 1-9",
-                      //icon: Icon(Icons.drive_file_rename_outline),
-                      border: OutlineInputBorder()
-                  ),
-                  obscureText: true,
-                ),
-              ),
-              Container(
-                width: 300,
-
-                child: TextField(
-                  decoration: InputDecoration(
-                      labelText: "Confirm Password",
-                      helperText: "Password and Confirm Password must be same",
-                      //icon: Icon(Icons.drive_file_rename_outline),
-                      border: OutlineInputBorder()
-                  ),
-                  obscureText: true,
-                ),
-              ),
+              //SIGN UP BUTTONS
               Container(
                 width: 250,
                 decoration: BoxDecoration(
@@ -162,8 +232,8 @@ class RegisterPage extends StatelessWidget {
                       blurRadius: 5,
                     ),
                   ],
-                  color: Colors.green.withOpacity(0.5),
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  color: Colors.blue.withOpacity(0.7),
+                  borderRadius: const BorderRadius.all(Radius.circular(20)),
                   // gradient: LinearGradient(colors: [Colors.blue,Colors.purple,Colors.pink,Colors.red],
 
                   // ),
@@ -176,17 +246,36 @@ class RegisterPage extends StatelessWidget {
                             builder: (context) => const HomePage()));
                   },
                   child: const Text(
-                    "Sign In",
+                    "Sign Up",
                     style: TextStyle(color: Colors.white, fontSize: 15),
                   ),
                 ),
               ),
-              SizedBox(
-                height: 15,
-              ),
+              //ALREADY HAVE A ACOOUNT
+              Padding(
+                padding: const EdgeInsets.only(left:90,bottom: 150),
+                child: Row(
+                  children: [
+                    const Text("Already Have Account?"),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const LoginPage()));
+                      },
+                      child: const Text(
+                        "Sign In",
+                        style: TextStyle(color: Colors.blue, fontSize: 15),
+                      ),),
+                  ],
+                ),
+              )
             ],
+
           ),
         ),
+
       ),
     );
   }
