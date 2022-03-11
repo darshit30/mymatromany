@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:newmatromany/startapp.dart';
 
-import 'LoginPage.dart';
-
 void main() {
   runApp(const MyApp());
 }
@@ -20,7 +18,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
 
       ),
-      home: StartApp(),
+      home: const StartApp(),
     );
   }
 }

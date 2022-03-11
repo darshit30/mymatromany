@@ -3,14 +3,14 @@ import 'package:newmatromany/navigator_pages/favorite.dart';
 import 'package:newmatromany/navigator_pages/home_page.dart';
 import 'package:newmatromany/navigator_pages/search.dart';
 import 'package:newmatromany/navigator_pages/setting.dart';
-class NavigatorBar extends StatefulWidget {
-  const NavigatorBar({Key? key}) : super(key: key);
+class NavigationBarPage extends StatefulWidget {
+  const NavigationBarPage({Key? key}) : super(key: key);
 
   @override
-  State<NavigatorBar> createState() => _NavigatorBarState();
+  State<NavigationBarPage> createState() => _NavigationBarPageState();
 }
 
-class _NavigatorBarState extends State<NavigatorBar> {
+class _NavigationBarPageState extends State<NavigationBarPage> {
   List pages = [
     HomePage(),
     Search(),
@@ -31,16 +31,16 @@ class _NavigatorBarState extends State<NavigatorBar> {
         selectedFontSize: 0,
         unselectedFontSize: 0,
         currentIndex: 0,
-        type: BottomNavigationBarType.shifting,
+        type: BottomNavigationBarType.fixed,
         onTap: onTap,
         backgroundColor: Colors.white,
         selectedItemColor: Colors.blue,
         showSelectedLabels: false,
         showUnselectedLabels: false,
         elevation: 0,
-        unselectedItemColor: Colors.lightBlueAccent,
+        unselectedItemColor: Colors.grey,
         items: [
-          BottomNavigationBarItem(label: "Home",icon: Icon(Icons.home)),
+          BottomNavigationBarItem(label: "Home",icon: Icon(Icons.home) ),
           BottomNavigationBarItem(label: "Search",icon: Icon(Icons.search)),
           BottomNavigationBarItem(label: "Favorite",icon: Icon(Icons.favorite)),
           BottomNavigationBarItem(label: "Settings",icon: Icon(Icons.settings))

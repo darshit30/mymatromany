@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:newmatromany/LoginPage.dart';
-import 'package:newmatromany/navigator_pages/home_page.dart';
 import 'package:newmatromany/startapp.dart';
+
+import 'navigator_pages/navigationbar.dart';
 class RegisterPage extends StatelessWidget {
   const RegisterPage({Key? key}) : super(key: key);
   @override
@@ -243,7 +244,7 @@ class RegisterPage extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const HomePage()));
+                            builder: (context) => NavigationBarPage()));
                   },
                   child: const Text(
                     "Sign Up",

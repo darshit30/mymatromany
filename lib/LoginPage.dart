@@ -1,7 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:newmatromany/navigator_pages/home_page.dart';
+import 'package:newmatromany/navigator_pages/navigationbar.dart';
 import 'package:newmatromany/register.dart';
+import 'navigator_pages/home_page.dart';
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -111,7 +112,7 @@ class LoginPage extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const HomePage()));
+                                  builder: (context) => const NavigationBarPage()));
                         },
                         child: const Text(
                           "Forgot Password?",
@@ -146,7 +147,7 @@ class LoginPage extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const HomePage()));
+                            builder: (context) => const NavigationBarPage()));
                   },
                   child: const Text(
                     "Sign In",

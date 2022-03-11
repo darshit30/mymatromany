@@ -4,8 +4,10 @@ class Favorite extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      //bottomNavigationBar: NavigatorBar(),
+    return Container(
+      child: Center(
+          child: Text("Favorite Page")
+      ),
     );
   }
 }
