@@ -3,6 +3,7 @@ import 'package:newmatromany/navigator_pages/favorite.dart';
 import 'package:newmatromany/navigator_pages/home_page.dart';
 import 'package:newmatromany/navigator_pages/search.dart';
 import 'package:newmatromany/navigator_pages/setting.dart';
+import 'notification.dart';
 class NavigationBarPage extends StatefulWidget {
   const NavigationBarPage({Key? key}) : super(key: key);
 
@@ -15,6 +16,7 @@ class _NavigationBarPageState extends State<NavigationBarPage> {
     HomePage(),
     Search(),
     Favorite(),
+    NewNotification(),
     Settings(),
   ];
   int currentIndex=0;
@@ -33,16 +35,20 @@ class _NavigationBarPageState extends State<NavigationBarPage> {
         currentIndex: 0,
         type: BottomNavigationBarType.fixed,
         onTap: onTap,
+        iconSize: 25,
         backgroundColor: Colors.white,
         selectedItemColor: Colors.blue,
         showSelectedLabels: false,
         showUnselectedLabels: false,
         elevation: 0,
-        unselectedItemColor: Colors.grey,
+        enableFeedback: false,
+
+        unselectedItemColor: Colors.blueGrey,
         items: [
-          BottomNavigationBarItem(label: "Home",icon: Icon(Icons.home) ),
+          BottomNavigationBarItem(label: "Home",icon: Icon(Icons.home)),
           BottomNavigationBarItem(label: "Search",icon: Icon(Icons.search)),
           BottomNavigationBarItem(label: "Favorite",icon: Icon(Icons.favorite)),
+          BottomNavigationBarItem(label: "Notification",icon: Icon(Icons.notifications_active)),
           BottomNavigationBarItem(label: "Settings",icon: Icon(Icons.settings))
         ],
       ),

@@ -244,7 +244,7 @@ class RegisterPage extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => NavigationBarPage()));
+                            builder: (context) => const NavigationBarPage()));
                   },
                   child: const Text(
                     "Sign Up",
