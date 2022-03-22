@@ -13,7 +13,7 @@ class Settings extends StatelessWidget {
       ),
       body: Column(
         children: [
-          SizedBox(height: 50),
+          SizedBox(height: 30),
           ProfilePic(),
           SizedBox(height: 5),
           Text("User Name",
@@ -23,16 +23,11 @@ class Settings extends StatelessWidget {
                 fontSize: 20,
             ),
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 15),
           ProfileMenu(
             text: "My Account",
             icon: "assets/icons/User Icon.svg",
             press: () => {},
-          ),
-          ProfileMenu(
-            text: "Notifications",
-            icon: "assets/icons/Bell.svg",
-            press: () {},
           ),
           ProfileMenu(
             text: "Settings",

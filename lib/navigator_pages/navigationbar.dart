@@ -1,3 +1,4 @@
+import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:newmatromany/navigator_pages/favorite.dart';
 import 'package:newmatromany/navigator_pages/home_page.dart';
@@ -10,46 +11,64 @@ class NavigationBarPage extends StatefulWidget {
   @override
   State<NavigationBarPage> createState() => _NavigationBarPageState();
 }
-
 class _NavigationBarPageState extends State<NavigationBarPage> {
-  List pages = [
-    HomePage(),
-    Search(),
-    Favorite(),
-    NewNotification(),
-    Settings(),
-  ];
+  int _selectedIndex=0;
+
   int currentIndex=0;
   void onTap(int index){
     setState(() {
       currentIndex=index;
     });
   }
+  PageController _pageController=PageController();
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController();
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: pages[currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        selectedFontSize: 0,
-        unselectedFontSize: 0,
-        currentIndex: 0,
-        type: BottomNavigationBarType.fixed,
-        onTap: onTap,
-        iconSize: 25,
+      body: SizedBox.expand(
+        child: PageView(
+          controller: _pageController,
+          onPageChanged: (index) {
+            setState(() => _selectedIndex = index);
+          },
+          children: <Widget>[
+            HomePage(),
+            Search(),
+            Favorite(),
+            NewNotification(),
+            Settings(),
+          ],
+        ),
+      ),
+      bottomNavigationBar: BottomNavyBar(
         backgroundColor: Colors.white,
-        selectedItemColor: Colors.blue,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        elevation: 0,
-        enableFeedback: false,
+          onItemSelected: (index) => setState(() {
+            _selectedIndex = index;
+            _pageController.animateToPage(index,
+                duration: Duration(milliseconds: 500), curve: Curves.ease);
 
-        unselectedItemColor: Colors.blueGrey,
+          }),
+        selectedIndex: _selectedIndex,
+        animationDuration: Duration(milliseconds: 400),
+        showElevation: true,
         items: [
-          BottomNavigationBarItem(label: "Home",icon: Icon(Icons.home)),
-          BottomNavigationBarItem(label: "Search",icon: Icon(Icons.search)),
-          BottomNavigationBarItem(label: "Favorite",icon: Icon(Icons.favorite)),
-          BottomNavigationBarItem(label: "Notification",icon: Icon(Icons.notifications_active)),
-          BottomNavigationBarItem(label: "Settings",icon: Icon(Icons.settings))
+          BottomNavyBarItem(title: Text("Home"),icon: Icon(Icons.home),activeColor: Colors.black),
+          BottomNavyBarItem(title: Text(""),icon: Icon(Icons.search),activeColor: Colors.black),
+          BottomNavyBarItem(title: Text("Favorite"),icon: Icon(Icons.favorite),activeColor: Colors.black),
+          BottomNavyBarItem(title: Text("Notification"),icon: Icon(Icons.notifications_active),activeColor: Colors.black),
+          BottomNavyBarItem(title: Text("Settings"),icon: Icon(Icons.settings),activeColor: Colors.black)
         ],
       ),
 

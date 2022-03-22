@@ -104,7 +104,7 @@ class ProfileMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       child: TextButton(
         style: TextButton.styleFrom(
           padding: EdgeInsets.all(20),
@@ -116,7 +116,7 @@ class ProfileMenu extends StatelessWidget {
         onPressed: press,
         child: Row(
           children: [
-            SizedBox(width: 20),
+            // SizedBox(width: 5),
             Expanded(child: Text(text)),
             Icon(Icons.arrow_forward_ios),
           ],
@@ -151,8 +151,8 @@ class ProfilePic extends StatelessWidget {
             bottom: 0,
             child: SizedBox(
 
-              height: 25,
-              // width: 50,
+              height: 5,
+              width: 50,
               child: TextButton(
                 style: TextButton.styleFrom(
                   shape: RoundedRectangleBorder(
