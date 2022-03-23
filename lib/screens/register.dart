@@ -1,7 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:newmatromany/screens/LoginPage.dart';
 import 'package:newmatromany/screens/startapp.dart';
 import '../navigator_pages/navigationbar.dart';
+import 'package:http/http.dart' as http;
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
   @override
@@ -100,7 +103,7 @@ class _RegisterPageState extends State<RegisterPage> {
               SizedBox(
                 width: 300,
                 child: Form(
-                  key: formKey,
+                  key: _registerkey,
                   child: Column(
 
                     children: [
@@ -430,7 +433,21 @@ class _RegisterPageState extends State<RegisterPage> {
 
   Future RegisterationUser() async{
     var APIURL="";
-    Map mapedData={};
+    Map mapedData={
+      'fullname': _fullName.text,
+      'username': _userName.text,
+      'mobilenumber': _mobileNumber.text,
+      'city': _city.text,
+      'state': _state.text,
+      'country': _country.text,
+      'email': _emailAddress.text,
+      'password':_password.text,
+      'confirmPassword':_confirmPassword,
+    };
+    print("JSON DATA::${mapedData}");
 
+    http.response response=await http.post(APIURL,body:mapedData);
+    var  data =jsonDecode(response.body);
+    print("DATA::${data}");
   }
 }

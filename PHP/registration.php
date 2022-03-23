@@ -7,6 +7,8 @@ $state = $_POST["state"];
 $country = $_POST["country"];
 $email = $_POST["email"];
 $motherLanguage = $_POST["motherlanguage"];
+$password=$POST["password"];
+$confirmPassword=$POST["confirmPassword"]
 
 require_once 'connect.php';
 
@@ -23,7 +25,13 @@ $findexist= "SELECT * FROM registered where name='$name'";
         }
     }
     else(
-        $sql= "INSERT * FROM registered (name,username,mobilenumber,city,state,country,email,motherlanguage) VALUES('$fullName','$userName','$mobileNumber','$city','$state','$country','$email','$motherLanguage','$password','$confirmPassword');";
+        $sql= "INSERT * FROM registered 
+        
+        (name,username,mobilenumber,city,
+        state,country,email,motherlanguage,password,confirmPassword)
+
+         VALUES('$fullName','$userName','$mobileNumber','$city',
+         '$state','$country','$email','$motherLanguage','$password','$confirmPassword');";
                 if(mysqli_query($conn,$sql))
                     {
                             $result["success"]="1";
