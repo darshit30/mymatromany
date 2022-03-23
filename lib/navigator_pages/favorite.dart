@@ -1,143 +1,121 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:newmatromany/widgets.dart';
-class Favorite extends StatelessWidget {
+class Favorite extends StatefulWidget {
   const Favorite({Key? key}) : super(key: key);
 
   @override
+  State<Favorite> createState() => _FavoriteState();
+}
+
+class _FavoriteState extends State<Favorite> {
+  List images=[
+    "1.jpg",
+    "2.jpg",
+    "3.jpg",
+    "4.jpg",
+    "5.jpg",
+  ];
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-    body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Column(
-//          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Card(
-              child: Column(
-              children: [
-                Fullname(text: "Hellow"),
-              Image.asset("assets/image/1.jpg"),
-              ],
-            )),
-            const SizedBox(
-              height: 10,
-            ),
-            Card(
-              shape:
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
-              ),
-              clipBehavior: Clip.antiAlias,
-              shadowColor: Colors.black,
-              elevation: 25,
-              color: Colors.black,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
+        body: PageView.builder(
+              scrollDirection: Axis.vertical,
+              itemCount: 5,
+              itemBuilder: (_, index) {
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                      height: double.maxFinite,
+                      width: double.maxFinite,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                        image: DecorationImage(image: AssetImage("assets/image/"+images[index]))
+                      ),
 
-              children: [
-              Image.asset("assets/image/1.jpg"),
-                Row(
-                  children: [
-                    Column(
-                      children: [
-                        Row(
+                      child: Stack(
                           children: [
-                            TextWid(),
-                            Text("Name",style: TextStyle(color: Colors.white),),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            TextWid(),
-                            Text("Name",style: TextStyle(color: Colors.white),),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            TextWid(),
-                            Text("Name",style: TextStyle(color: Colors.white),),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            TextWid(),
-                            Text("Name",style: TextStyle(color: Colors.white),),
-                          ],
-                        )
-                      ],
-                    )
-                  ],
-                )
-              ],
-              )
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Container(
-              child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  shadowColor: Colors.black,
-                  elevation: 25,
-                  color: Colors.black,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                            Padding(
+                              padding: const EdgeInsets.only(top: 500, left: 20),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(50)
+                                ),
+                                height: 110,
+                                width: 200,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(
+                                    children: [
+                                      Row(children: const [
+                                        Text("Tom Stark.",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.white,
+                                                fontSize: 25,
+                                                fontStyle: FontStyle.italic))
+                                      ],),
+                                      Row(children: const [
+                                        Text("20 Years, From:Newyork",
+                                            style: TextStyle(color: Colors.white))
+                                      ]),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
 
-                    children: [
-                      Image.asset("assets/image/1.jpg"),
-                      Column(
-                        children: const [
-                          Text("Name: Name Surname"),
-                          Text("Age: Age"),
-                          Text("Community: Hindi"),
-                          Text("Profession: Profession"),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 570, left: 280),
+                              child: Container(
+                                decoration: const BoxDecoration(
+                                  //borderRadius: BorderRadius.circular(50),
+                                  color: Colors.redAccent,
+                                  shape: BoxShape.circle,
+                                ),
+                                child: TextButton(
+                                  style: ButtonStyle(
+                                    foregroundColor: MaterialStateProperty.all<Color>(
+                                        Colors.white),
+                                  ),
+                                  onPressed: () {},
+                                  child: const Padding(
+                                    padding: EdgeInsets.all(8.0),
+                                    child: Icon(Icons.cancel_outlined, size: 25,semanticLabel: "Remove",color: Colors.black),
+                                  ),
+                                ),
+                              ),
 
-                        ],
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 520, left: 170),
+                              child: Container(
+                                height: 30,
+                                width: 30,
+                                decoration: BoxDecoration(
+                                  //borderRadius: BorderRadius.circular(50),
+                                  color: Colors.white.withOpacity(0.3),
+                                  shape: BoxShape.circle,
+                                ),
+                                child: TextButton(
+                                  style: ButtonStyle(
+                                    foregroundColor: MaterialStateProperty.all<Color>(
+                                        Colors.white),
+                                  ),
+                                  onPressed: () {},
+                                  child: const Icon(
+                                    Icons.arrow_forward_ios_outlined, size: 10,),
+                                ),
+                              ),
+
+                            ),
+                          ]
+
                       )
-                    ],
-                  )
-              ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Container(
-              child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
                   ),
-                  shadowColor: Colors.black,
-                  elevation: 25,
-                  color: Colors.black,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                );
+              }
+          ),
 
-                    children: [
-                      Image.asset("assets/image/1.jpg"),
-                      Column(
-                        children: const [
-                          Text("Name: Name Surname"),
-                          Text("Age: Age"),
-                          Text("Community: Hindi"),
-                          Text("Profession: Profession"),
-
-                        ],
-                      )
-                    ],
-                  )
-              ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            const Card(
-
-            )
-          ],
-    ),
-    )
     );
   }
 }

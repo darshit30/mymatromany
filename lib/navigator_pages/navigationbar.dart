@@ -2,9 +2,8 @@ import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:newmatromany/navigator_pages/favorite.dart';
 import 'package:newmatromany/navigator_pages/home_page.dart';
-import 'package:newmatromany/navigator_pages/search.dart';
+import 'package:newmatromany/navigator_pages/notification.dart';
 import 'package:newmatromany/navigator_pages/setting.dart';
-import 'notification.dart';
 class NavigationBarPage extends StatefulWidget {
   const NavigationBarPage({Key? key}) : super(key: key);
 
@@ -45,9 +44,9 @@ class _NavigationBarPageState extends State<NavigationBarPage> {
           },
           children: <Widget>[
             HomePage(),
-            Search(),
+            //Search(),
+            UserListScreen(),
             Favorite(),
-            NewNotification(),
             Settings(),
           ],
         ),
@@ -64,11 +63,10 @@ class _NavigationBarPageState extends State<NavigationBarPage> {
         animationDuration: Duration(milliseconds: 400),
         showElevation: true,
         items: [
-          BottomNavyBarItem(title: Text("Home"),icon: Icon(Icons.home),activeColor: Colors.black),
-          BottomNavyBarItem(title: Text(""),icon: Icon(Icons.search),activeColor: Colors.black),
-          BottomNavyBarItem(title: Text("Favorite"),icon: Icon(Icons.favorite),activeColor: Colors.black),
-          BottomNavyBarItem(title: Text("Notification"),icon: Icon(Icons.notifications_active),activeColor: Colors.black),
-          BottomNavyBarItem(title: Text("Settings"),icon: Icon(Icons.settings),activeColor: Colors.black)
+          BottomNavyBarItem(title: Text("Home"),icon: Icon(Icons.home),activeColor: Colors.lightBlueAccent),
+          BottomNavyBarItem(title: Text("UserList"),icon: Icon(Icons.search),activeColor: Colors.lightBlueAccent),
+          BottomNavyBarItem(title: Text("Favorite"),icon: Icon(Icons.favorite),activeColor: Colors.lightBlueAccent),
+          BottomNavyBarItem(title: Text("Settings"),icon: Icon(Icons.settings),activeColor: Colors.lightBlueAccent)
         ],
       ),
 
