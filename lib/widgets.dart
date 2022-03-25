@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 //FULLNAME CLASS
@@ -135,40 +134,10 @@ class ProfilePic extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 115,
-      width: 115,
-      child: Stack(
-        fit: StackFit.expand,
-        clipBehavior: Clip.none,
-        children: [
-          CircleAvatar(
-            backgroundImage: AssetImage("assets/image/5.jpg"),
-          ),
-          Positioned(
-            height: 23,
-            width: 23,
-            right: 10,
-            bottom: 0,
-            child: SizedBox(
-
-              height: 5,
-              width: 50,
-              child: TextButton(
-                style: TextButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(50),
-                    side: BorderSide(color: Colors.black.withOpacity(0.1)),
-                  ),
-                  primary: Colors.white,
-
-                  backgroundColor: Colors.white,
-                ),
-                onPressed: () {}, child:
-              Icon(Icons.edit,color: Colors.black,size: 15),
-              ),
-            ),
-          )
-        ],
+      height: 100,
+      width: 60,
+      child: CircleAvatar(
+        backgroundImage: AssetImage("assets/image/5.jpg"),
       ),
     );
   }

@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:newmatromany/navigator_pages/view_profile.dart';
 import '../widgets.dart';
 class Settings extends StatelessWidget {
   const Settings({Key? key}) : super(key: key);
@@ -26,29 +25,16 @@ class Settings extends StatelessWidget {
           SizedBox(height: 15),
           ProfileMenu(
             text: "My Account",
-            icon: "assets/icons/User Icon.svg",
-            press: () => {},
-          ),
-          ProfileMenu(
-            text: "Settings",
-            icon: "assets/icons/Settings.svg",
-            press: () {},
-          ),
-          ProfileMenu(
-            text: "Help Center",
-            icon: "assets/icons/Question mark.svg",
-            press: () {},
-          ),
-          ProfileMenu(
-            text: "Log Out",
-            icon: "assets/icons/Log out.svg",
-            press: () {},
+            icon: "assets/icons/edit.svg",
+            press: () => {
+              Navigator.push(
+              context,
+              MaterialPageRoute(
+              builder: (context) => const ViewProfile()))
+              },
           ),
         ],
       ),
     );
   }
 }
-
-
-

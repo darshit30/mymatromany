@@ -1,3 +1,5 @@
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:newmatromany/navigator_pages/navigationbar.dart';
 import 'package:newmatromany/screens/register.dart';
@@ -9,9 +11,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final TextEditingController _userName=TextEditingController();
-  final TextEditingController _password=TextEditingController();
-  final GlobalKey<FormState> formKey = new GlobalKey();
+  TextEditingController _userName=TextEditingController();
+  TextEditingController _password=TextEditingController();
+  final GlobalKey<FormState> _loginkey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,7 @@ class _LoginPageState extends State<LoginPage> {
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Form(
-            key: formKey,
+            key: _loginkey,
             child: Column(
               children: [
                  SizedBox(
@@ -152,8 +154,17 @@ class _LoginPageState extends State<LoginPage> {
 
                    // ),
                   ),
-                  child: TextButton(
+                  child: ElevatedButton(
                     onPressed: () {
+                      if(_loginkey.currentState!.validate())
+                      {
+                        RegisterationUser();
+                        print("Successful");
+                      }
+                      else
+                      {
+                        print("Unsuccessful");
+                      }
                       Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -193,4 +204,18 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
+}
+
+
+RegisterationUser() async{
+  var APIURL="http://192.168.1.7:8080/PHP/registration.php";
+  Map mapedData={
+    'userName': _LoginPageState(),
+    'password':_LoginPageState(),
+  };
+  print("JSON DATA::${mapedData}");
+
+  http.Response response=await http.post(Uri.parse(APIURL),body:mapedData);
+  var  data =jsonDecode(response.body);
+  print("DATA::${data}");
 }

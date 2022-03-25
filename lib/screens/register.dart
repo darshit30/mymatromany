@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:newmatromany/screens/LoginPage.dart';
 import 'package:newmatromany/screens/startapp.dart';
@@ -13,7 +12,7 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  TextEditingController _fullName=TextEditingController();
+  TextEditingController _name=TextEditingController();
   TextEditingController _userName=TextEditingController();
   TextEditingController _mobileNumber=TextEditingController();
   TextEditingController _city=TextEditingController();
@@ -100,7 +99,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 height: 30,
               ),
               //FORM QUARIES
-              SizedBox(
+              Container(
                 width: 300,
                 child: Form(
                   key: _registerkey,
@@ -110,7 +109,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
                       //TEXTFIELD OF ENTER FULL NAME
                       TextFormField(
-                        controller: _fullName,
+                        controller: _name,
                         keyboardType: TextInputType.text,
                         decoration: const InputDecoration(
                           icon: Icon(Icons.person,
@@ -362,9 +361,10 @@ class _RegisterPageState extends State<RegisterPage> {
               const SizedBox(
                 height: 20,
               ),
-              //SIGN UP BUTTONS
+              //SIGN UP BUTTON
               Container(
-                width: 250,
+                height: 50,
+                width: 100,
                 decoration: BoxDecoration(
                   //border: Border.all(color: Colors.grey),
                   boxShadow: const [
@@ -432,9 +432,9 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   Future RegisterationUser() async{
-    var APIURL="";
+    var APIURL="http://192.168.1.7:8080/PHP/registration.php";
     Map mapedData={
-      'fullname': _fullName.text,
+      'fullname': _name.text,
       'username': _userName.text,
       'mobilenumber': _mobileNumber.text,
       'city': _city.text,
@@ -446,7 +446,7 @@ class _RegisterPageState extends State<RegisterPage> {
     };
     print("JSON DATA::${mapedData}");
 
-    http.response response=await http.post(APIURL,body:mapedData);
+    http.Response response=await http.post(Uri.parse(APIURL),body:mapedData);
     var  data =jsonDecode(response.body);
     print("DATA::${data}");
   }
