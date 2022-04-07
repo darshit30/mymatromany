@@ -2,7 +2,7 @@ import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:newmatromany/navigator_pages/favorite.dart';
 import 'package:newmatromany/navigator_pages/home_page.dart';
-import 'package:newmatromany/navigator_pages/setting.dart';
+import 'package:newmatromany/navigator_pages/search.dart';
 class NavigationBarPage extends StatefulWidget {
   const NavigationBarPage({Key? key}) : super(key: key);
 
@@ -35,34 +35,33 @@ class _NavigationBarPageState extends State<NavigationBarPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SizedBox.expand(
-        child: PageView(
-          controller: _pageController,
-          onPageChanged: (index) {
-            setState(() => _selectedIndex = index);
-          },
-          children: <Widget>[
-            HomePage(),
-            Favorite(),
-            Settings(),
-          ],
-        ),
+      body: PageView(
+        controller: _pageController,
+        onPageChanged: (index) {
+          setState(() => _selectedIndex = index);
+        },
+        children: <Widget>[
+          HomePage(),
+          Search(),
+          Favorite(),
+
+        ],
       ),
       bottomNavigationBar: BottomNavyBar(
         backgroundColor: Colors.white,
           onItemSelected: (index) => setState(() {
             _selectedIndex = index;
-            _pageController.animateToPage(index,
-                duration: Duration(milliseconds: 500), curve: Curves.ease);
+            // _pageController.animateToPage(index,
+            //     duration: Duration(milliseconds: 500), curve: Curves.ease);
 
           }),
-        selectedIndex: _selectedIndex,
-        animationDuration: Duration(milliseconds: 400),
+        // selectedIndex: _selectedIndex,
+        // animationDuration: Duration(milliseconds: 400),
         showElevation: true,
         items: [
           BottomNavyBarItem(title: Text("Home"),icon: Icon(Icons.home),activeColor: Colors.lightBlueAccent),
-          BottomNavyBarItem(title: Text("Favorite"),icon: Icon(Icons.favorite),activeColor: Colors.lightBlueAccent),
-          BottomNavyBarItem(title: Text("Settings"),icon: Icon(Icons.settings),activeColor: Colors.lightBlueAccent)
+          BottomNavyBarItem(title: Text("Search"),icon: Icon(Icons.favorite),activeColor: Colors.lightBlueAccent),
+          BottomNavyBarItem(title: Text("Favorite"),icon: Icon(Icons.settings),activeColor: Colors.lightBlueAccent)
         ],
       ),
 
